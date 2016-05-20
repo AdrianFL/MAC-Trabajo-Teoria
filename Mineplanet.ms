@@ -1615,7 +1615,7 @@ fn crearRoca x y n =
 		
 rollout Minecraft "General" width:429 height:600
 (
-	label lbl2 "Generador de mundos de Minecraft" pos:[160,20] width:130 height:30 align:#center
+	label lbl2 "Generador de planetas de Minecraft" pos:[130,20] width:200 height:30 align:#center
 	
 	groupBox grp1 "Terreno" pos:[20,50] width:386 height:150
 	dropDownList dropPlaneta "Planeta" pos:[40,70] width:344 height:40 items:#("Luna", "Júpiter", "Marte")
@@ -1623,27 +1623,27 @@ rollout Minecraft "General" width:429 height:600
 	label lbl4 "Eje Y" pos:[40,150] width:30 height:20
 	spinner spn3 "" pos:[80,130] width:90 height:16 range:[1,50,1] type:#integer
 	spinner spn4 "" pos:[80,150] width:90 height:16 range:[1,50,1] type:#integer
-	radioButtons rdo1 "Iluminación" pos:[250,132] width:55 height:46 labels:#("Día", "Noche")
+	radioButtons rdo1 "Iluminación" pos:[280,132] width:55 height:46 labels:#("Día", "Noche")
 	checkbox 'chk_terreno' "Terreno plano" pos:[80,170] width:100 height:20 align:#left
 
 	groupBox grp2 "Pirámides" pos:[20,200] width:386 height:100
-	checkbox 'chk3' "Construir pirámide" pos:[50,220] width:150 height:20 align:#left
-	spinner spn5 "Tamaño" pos:[270, 250] width: 90 height: 16 range:[1,10,1] type: #integer	
-	dropDownList dropPiramides "Tipo de pirámide" pos:[70,250] width:120 height:40 items:#("Egipcia", "Maya", "Tailandesa")
+	checkbox 'chk3' "Construir pirámide" pos:[50,225] width:150 height:20 align:#left
+	spinner spn5 "Tamaño" pos:[280, 250] width: 90 height: 16 range:[1,10,1] type: #integer	
+	dropDownList dropPiramides "Tipo de pirámide" pos:[50,250] width:120 height:40 items:#("Egipcia", "Maya", "Tailandesa")
 	
 	groupBox grp3 "Flora" pos:[20,300] width:386 height:100
-	spinner spn6 "Número de árboles" pos:[270,320] width:100 height:16 range:[1,30,1] type:#integer
-	checkbox 'chk_arbol' "Plantar árboles" pos:[50,320] width:150 height:20 align:#left
-	spinner spn7 "Número de rocas" pos:[270,351] width:100 height:16 range:[1,30,1] type:#integer
-	checkbox 'chk_rocas' "Colocar rocas" pos:[50,350] width:150 height:20 align:#left
+	spinner spn6 "Número de árboles" pos:[270,335] width:100 height:16 range:[1,30,1] type:#integer
+	checkbox 'chk_arbol' "Plantar árboles" pos:[50,335] width:150 height:20 align:#left
+	spinner spn7 "Número de rocas" pos:[270,355] width:100 height:16 range:[1,30,1] type:#integer
+	checkbox 'chk_rocas' "Colocar rocas" pos:[50,355] width:150 height:20 align:#left
 	
 	groupBox grp4 "Construcciones" pos:[20, 400] width:386 height:100
-	checkbox 'chk4' "Construir obelisco" pos:[50,420] width: 150 height: 20 align:#left
-	checkbox 'chk_puente' "Construir puente" pos:[50,450] width: 150 height: 20 align:#left
-	spinner spn8 "Ancho del puente" pos:[260,435] width:100 height:16 range:[1,30,1] type:#integer
-	spinner spn9 "Largo del puente" pos:[260,465] width:100 height:16 range:[1,30,1] type:#integer
+	checkbox 'chk4' "Construir obelisco" pos:[50,435] width: 150 height: 20 align:#left
+	checkbox 'chk_puente' "Construir puente" pos:[50,455] width: 150 height: 20 align:#left
+	spinner spn8 "Ancho del puente" pos:[270,435] width:100 height:16 range:[1,30,1] type:#integer
+	spinner spn9 "Largo del puente" pos:[270,455] width:100 height:16 range:[1,30,1] type:#integer
 	
-	button btn2 "Generar Mundo" pos:[100,490] width:120 height:50
+	button btn2 "Generar Mundo" pos:[150,530] width:120 height:50
 	on dropArboles selected i do
 		tipoArbol=i
 	on dropPiramides selected j do
