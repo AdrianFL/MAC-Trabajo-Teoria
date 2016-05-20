@@ -6,7 +6,7 @@ ArrayMundo=#()
 --Lista de Materiales--
 
 
-matAgua = multimaterial numsubs: 6
+
 matSueloLuna = multimaterial numsubs: 6
 matSueloMarte = multimaterial numsubs: 6
 matSueloJupiter = multimaterial numsubs: 6
@@ -31,13 +31,7 @@ matBloqueJupiter = multimaterial numsubs: 6
 matHojasLuna = multimaterial numsubs: 6
 matHojasMarte = multimaterial numsubs: 6
 matHojasJupiter = multimaterial numsubs: 6
-matRocasLuna = multimaterial numsubs: 6
-matRocasMarte = multimaterial numsubs: 6
-matRocasJupiter = multimaterial numsubs: 6
 
-
-
-texturaAgua = sysInfo.currentdir + "\\Texturas\agua.png"
 texturaSueloLuna = sysInfo.currentdir + "\\Texturas\luna.png"
 texturaSueloMarte = sysInfo.currentdir + "\\Texturas\marte.png"
 texturaSueloJupiter = sysInfo.currentdir + "\\Texturas\jupiter.png"
@@ -62,10 +56,6 @@ texturaBloqueJupiter = sysInfo.currentdir + "\\Texturas\bloquejupiter.png"
 texturaHojasLuna = sysInfo.currentdir + "\\Texturas\hojasluna.png"
 texturaHojasMarte = sysInfo.currentdir + "\\Texturas\hojasmarte.png"
 texturaHojasJupiter = sysInfo.currentdir + "\\Texturas\hojasjupiter.png"
-texturaRocasLuna = sysInfo.currentdir + "\\Texturas\rocas3luna.png"
-texturaRocasMarte = sysInfo.currentdir + "\\Texturas\rocas3marte.png"
-texturaRocasJupiter = sysInfo.currentdir + "\\Texturas\rocas3jupiter.png"
-
 
 bitmapSueloLuna=bitmaptexture filename: texturaAgua
 bitmapSueloLuna=bitmaptexture filename: texturaSueloLuna
@@ -92,13 +82,6 @@ bitmapBloqueJupiter=bitmaptexture filename: texturaBloqueJupiter
 bitmapHojasLuna=bitmaptexture filename: texturaHojasLuna
 bitmapHojasMarte=bitmaptexture filename: texturaHojasMarte
 bitmapHojasJupiter=bitmaptexture filename: texturaHojasJupiter
-bitmapRocasLuna=bitmaptexture filename: texturaRocasLuna
-bitmapRocasMarte=bitmaptexture filename: texturaRocasMarte
-bitmapRocasJupiter=bitmaptexture filename: texturaRocasJupiter
-
-
-
-
 
 
 for i=1 to 6 do(	
@@ -1597,16 +1580,16 @@ fn crearRoca x y n =
 		(
 				mybox = box length:1 width:1 height:1
 				mybox.pos=[ArrayX[i], ArrayY[i], j]
-				
+
 				--Texturas-- 
 				if tipoPlaneta==1 do (
-					mybox.material=matRocasLuna
+					mybox.material=matPiedrasLuna
 				)
 				if tipoPlaneta==2 do(
-					mybox.material=matRocasMarte
+					mybox.material=matPiedrasJupiter
 				)
 				if tipoPlaneta==3 do(
-					mybox.material=matRocasJupiter
+					mybox.material=matPiedrasMarte
 				)
 				
 		)
