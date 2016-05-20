@@ -6,7 +6,7 @@ ArrayMundo=#()
 --Lista de Materiales--
 
 
-matAgua = multimaterial numsubs: 6
+
 matSueloLuna = multimaterial numsubs: 6
 matSueloMarte = multimaterial numsubs: 6
 matSueloJupiter = multimaterial numsubs: 6
@@ -31,13 +31,7 @@ matBloqueJupiter = multimaterial numsubs: 6
 matHojasLuna = multimaterial numsubs: 6
 matHojasMarte = multimaterial numsubs: 6
 matHojasJupiter = multimaterial numsubs: 6
-matRocasLuna = multimaterial numsubs: 6
-matRocasMarte = multimaterial numsubs: 6
-matRocasJupiter = multimaterial numsubs: 6
 
-
-
-texturaAgua = sysInfo.currentdir + "\\Texturas\agua.png"
 texturaSueloLuna = sysInfo.currentdir + "\\Texturas\luna.png"
 texturaSueloMarte = sysInfo.currentdir + "\\Texturas\marte.png"
 texturaSueloJupiter = sysInfo.currentdir + "\\Texturas\jupiter.png"
@@ -62,10 +56,6 @@ texturaBloqueJupiter = sysInfo.currentdir + "\\Texturas\bloquejupiter.png"
 texturaHojasLuna = sysInfo.currentdir + "\\Texturas\hojasluna.png"
 texturaHojasMarte = sysInfo.currentdir + "\\Texturas\hojasmarte.png"
 texturaHojasJupiter = sysInfo.currentdir + "\\Texturas\hojasjupiter.png"
-texturaRocasLuna = sysInfo.currentdir + "\\Texturas\rocas3luna.png"
-texturaRocasMarte = sysInfo.currentdir + "\\Texturas\rocas3marte.png"
-texturaRocasJupiter = sysInfo.currentdir + "\\Texturas\rocas3jupiter.png"
-
 
 bitmapSueloLuna=bitmaptexture filename: texturaAgua
 bitmapSueloLuna=bitmaptexture filename: texturaSueloLuna
@@ -92,13 +82,6 @@ bitmapBloqueJupiter=bitmaptexture filename: texturaBloqueJupiter
 bitmapHojasLuna=bitmaptexture filename: texturaHojasLuna
 bitmapHojasMarte=bitmaptexture filename: texturaHojasMarte
 bitmapHojasJupiter=bitmaptexture filename: texturaHojasJupiter
-bitmapRocasLuna=bitmaptexture filename: texturaRocasLuna
-bitmapRocasMarte=bitmaptexture filename: texturaRocasMarte
-bitmapRocasJupiter=bitmaptexture filename: texturaRocasJupiter
-
-
-
-
 
 
 for i=1 to 6 do(	
@@ -470,7 +453,7 @@ fn crearPiramide3 x y z =
 				
 			)
 		)
-		if k==z+1 then
+		if k==z+alturaPiramide then
 		(
 			for i=inicio to limiteX do
 			(
@@ -545,10 +528,22 @@ fn crearPiramide3 x y z =
 	inicioY=iniY
 	inicio=inicio+(altura/2)
 	inicioY-=1
-	for k=1 to z do
+	for k=alturaPiramide to z+alturaPiramide do
 	(
 		mybox = box length:0.66 width:1 height:0.33
 		mybox.pos=[inicio, inicioY+0.17, k]
+		
+						--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matLadrilloLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matLadrilloJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matLadrilloMarte
+				)
+		
 		mybox=box length: 0.33 width: 1 height: 0.33
 		mybox.pos=[inicio, inicioY+0.40, k+0.33]
 		inicioY+=1
@@ -570,10 +565,22 @@ fn crearPiramide3 x y z =
 	inicioY=iniY
 	inicioY=inicioY+(altura/2)
 	inicio-=1
-	for k=1 to z do
+	for k=alturaPiramide to z+alturaPiramide do
 	(
 		mybox= box length:1 width: 0.66 height:0.33
 		mybox.pos=[inicio+0.17, inicioY, k]
+		
+						--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matLadrilloLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matLadrilloJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matLadrilloMarte
+				)
+		
 		mybox=box length: 1 width: 0.33 height: 0.33
 		mybox.pos=[inicio+0.40, inicioY, k+0.33]
 		inicio+=1
@@ -595,10 +602,22 @@ fn crearPiramide3 x y z =
 	inicioY=iniY
 	inicioY=inicioY+(altura/2)
 	inicio=(inicio+altura)+1
-	for k=1 to z do
+	for k=alturaPiramide to z+alturaPiramide do
 	(
 		mybox= box length:1 width: 0.66 height:0.33
 		mybox.pos=[inicio-0.17, inicioY, k]
+		
+						--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matLadrilloLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matLadrilloJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matLadrilloMarte
+				)
+		
 		mybox=box length: 1 width: 0.33 height: 0.33
 		mybox.pos=[inicio-0.40, inicioY, k+0.33]
 		inicio-=1
@@ -620,10 +639,22 @@ fn crearPiramide3 x y z =
 	inicioY=iniY
 	inicio=inicio+(altura/2)
 	inicioY=(altura+inicioY)+1
-	for k=1 to z do
+	for k=alturaPiramide to z+alturaPiramide do
 	(
 		mybox = box length:0.66 width:1 height:0.33
 		mybox.pos=[inicio, inicioY-0.17, k]
+		
+						--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matLadrilloLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matLadrilloJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matLadrilloMarte
+				)
+		
 		mybox=box length: 0.33 width: 1 height: 0.33
 		mybox.pos=[inicio, inicioY-0.40, k+0.33]
 		inicioY-=1
@@ -641,32 +672,199 @@ fn crearPiramide3 x y z =
 		
 	)
 )
-fn crearPuente x y z =
-(
-	
-	altura=(z*2)
-	finX=x-altura+1
-	finY=y-altura+1
-	inicio=random 1 finX
-	inicioY=random 1 finY
-	for k=alturaPiramide to z do
+
+fn crearPuente x y anch larg =(
+	finX=x-larg
+	finY=y-anch
+	finX-=8
+	aux=0
+	intentos=10
+	while aux==0 and intentos>0 do
 	(
-		limiteX=inicio+altura
-		limiteY=inicioY+altura
-		for i=inicio to limiteX do
+		aux=1
+		intentos-=1
+		inicioX=random 1 finX
+		inicioY=random 1 finY
+		triplesuma=inicioX+larg+8
+		for i=inicioX to triplesuma do
 		(
-			for j=inicioY to limiteY do
+			for j=inicioY to inicioY+anch do
 			(
-				mybox = box length:1 width:1 height:1
-				mybox.pos= [i, j, k]
-				ArrayMundo[i][j]=-10;
+				if ArrayMundo[i][j] <=-10 then
+				(
+					aux=0
+				)
 			)
 		)
-		altura -=2
-		inicio +=1
-		inicioY +=1
+	)
+	if intentos>0 then
+	(
+		for i=inicioX to triplesuma do
+		(
+			for j=inicioY to inicioY+anch do
+			(
+				
+			ArrayMundo[i][j]=-11
+		)
+	)
+	for i=inicioY to inicioY+anch do
+	(
+		mybox = box length:1 width:1 height:1
+		mybox.pos=[inicioX, i, alturaPiramide+1]
+		
+			--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+	)
+	for i=inicioY to inicioY+anch do
+	(
+		mybox = box length:1 width:1 height:1
+		mybox.pos=[inicioX+1, i, alturaPiramide+2]
+		
+		--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+		
+	)
+	for i=inicioY to inicioY+anch do
+	(
+		mybox = box length:1 width:1 height:1
+		mybox.pos=[inicioX+2, i, alturaPiramide+3]
+		
+		--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+		
+	)
+	for i=inicioY to inicioY+anch do
+	(
+		mybox = box length:1 width:1 height:1
+		mybox.pos=[inicioX+3, i, alturaPiramide+4]
+		
+		--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+		
+	)
+	for i=inicioX+4 to inicioX+4+larg do
+	(
+		for j=inicioY to inicioY+anch do
+		(
+			mybox = box length:1 width:1 height:1
+			mybox.pos=[i, j, alturaPiramide+5]
+			
+			--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+			
+		)
+	)
+	for i=inicioY to inicioY+anch do
+	(
+		mybox = box length:1 width:1 height:1
+		mybox.pos=[inicioX+larg+5, i, alturaPiramide+4]
+		
+		--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+		
+	)
+	for i=inicioY to inicioY+anch do
+	(
+		mybox = box length:1 width:1 height:1
+		mybox.pos=[inicioX+larg+6, i, alturaPiramide+3]
+		
+		--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+		
+	)
+	for i=inicioY to inicioY+anch do
+	(
+		mybox = box length:1 width:1 height:1
+		mybox.pos=[inicioX+larg+7, i, alturaPiramide+2]
+		
+		--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+		
+	)
+	for i=inicioY to inicioY+anch do
+	(
+		mybox = box length:1 width:1 height:1
+		mybox.pos=[inicioX+larg+8, i, alturaPiramide+1]
+		
+		--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matBloqueLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matBloqueJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matBloqueMarte
+				)
+		
 	)
 )
+)
+
 fn crearTerreno x y=
 (
 	for i=1 to x do
@@ -1107,7 +1305,7 @@ fn crearArbol x y n =
 	
 	for i=1 to n do
 	(
-		mybox = box length:1 width:1 height:1
+		
 		altarb = random 2 6
 		tiparb = random 1 2
 		altarbini = ArrayMundo[ArrayX[i]][ArrayY[i]]+1
@@ -1354,9 +1552,53 @@ fn encenderLucesNoche longX longY longZ=(
 		
 		)
 
+fn crearRoca x y n =
+(
+	ArrayX=#()
+	cX=ArrayX.count
+	ArrayY=#()
+	cY=ArrayY.count
+	while cX<n and cY<n do
+	(
+		rdmX= random 1 x
+		rdmY= random 1 y
+		if ArrayMundo[rdmX][rdmY]>-10 then
+		(
+			append ArrayX rdmX
+			cX=ArrayX.count
+			append ArrayY rdmY
+			cY=ArrayY.count
+		)
+	)
+	
+	for i=1 to n do
+	(
+		
+		altarb = random 1 2
+		altarbini = ArrayMundo[ArrayX[i]][ArrayY[i]]+1
+		for j=altarbini to altarbini+altarb-1 do
+		(
+				mybox = box length:1 width:1 height:1
+				mybox.pos=[ArrayX[i], ArrayY[i], j]
+
+				--Texturas-- 
+				if tipoPlaneta==1 do (
+					mybox.material=matPiedrasLuna
+				)
+				if tipoPlaneta==2 do(
+					mybox.material=matPiedrasJupiter
+				)
+				if tipoPlaneta==3 do(
+					mybox.material=matPiedrasMarte
+				)
+				
+		)
+	)
+)
+		
 rollout Minecraft "General" width:429 height:600
 (
-	label lbl2 "Generador de mundos de Minecraft" pos:[160,20] width:130 height:30 align:#center
+	label lbl2 "Generador de planetas de Minecraft" pos:[130,20] width:200 height:30 align:#center
 	
 	groupBox grp1 "Terreno" pos:[20,50] width:386 height:150
 	dropDownList dropPlaneta "Planeta" pos:[40,70] width:344 height:40 items:#("Luna", "Júpiter", "Marte")
@@ -1364,22 +1606,27 @@ rollout Minecraft "General" width:429 height:600
 	label lbl4 "Eje Y" pos:[40,150] width:30 height:20
 	spinner spn3 "" pos:[80,130] width:90 height:16 range:[1,50,1] type:#integer
 	spinner spn4 "" pos:[80,150] width:90 height:16 range:[1,50,1] type:#integer
-	radioButtons rdo1 "Iluminación" pos:[250,132] width:55 height:46 labels:#("Día", "Noche")
+	radioButtons rdo1 "Iluminación" pos:[280,132] width:55 height:46 labels:#("Día", "Noche")
 	checkbox 'chk_terreno' "Terreno plano" pos:[80,170] width:100 height:20 align:#left
 
 	groupBox grp2 "Pirámides" pos:[20,200] width:386 height:100
-	checkbox 'chk3' "Construir pirámide" pos:[50,220] width:150 height:20 align:#left
-	spinner spn5 "Tamaño" pos:[270, 250] width: 90 height: 16 range:[1,10,1] type: #integer	
-	dropDownList dropPiramides "Tipo de pirámide" pos:[70,250] width:120 height:40 items:#("Egipcia", "Maya", "Tailandesa")
+	checkbox 'chk3' "Construir pirámide" pos:[50,225] width:150 height:20 align:#left
+	spinner spn5 "Tamaño" pos:[280, 250] width: 90 height: 16 range:[1,10,1] type: #integer	
+	dropDownList dropPiramides "Tipo de pirámide" pos:[50,250] width:120 height:40 items:#("Egipcia", "Maya", "Tailandesa")
 	
 	groupBox grp3 "Flora" pos:[20,300] width:386 height:100
-	spinner spn6 "Número de árboles" pos:[270,350] width:100 height:16 range:[1,30,1] type:#integer
-	checkbox 'chk_arbol' "Plantar árboles" pos:[50,320] width:150 height:20 align:#left
+	spinner spn6 "Número de árboles" pos:[270,335] width:100 height:16 range:[1,30,1] type:#integer
+	checkbox 'chk_arbol' "Plantar árboles" pos:[50,335] width:150 height:20 align:#left
+	spinner spn7 "Número de rocas" pos:[270,355] width:100 height:16 range:[1,30,1] type:#integer
+	checkbox 'chk_rocas' "Colocar rocas" pos:[50,355] width:150 height:20 align:#left
 	
 	groupBox grp4 "Construcciones" pos:[20, 400] width:386 height:100
-	checkbox 'chk4' "Construir obelisco" pos:[50,420] width: 150 height: 20 align:#left
+	checkbox 'chk4' "Construir obelisco" pos:[50,435] width: 150 height: 20 align:#left
+	checkbox 'chk_puente' "Construir puente" pos:[50,455] width: 150 height: 20 align:#left
+	spinner spn8 "Ancho del puente" pos:[270,435] width:100 height:16 range:[1,30,1] type:#integer
+	spinner spn9 "Largo del puente" pos:[270,455] width:100 height:16 range:[1,30,1] type:#integer
 	
-	button btn2 "Generar Mundo" pos:[100,490] width:120 height:50
+	button btn2 "Generar Mundo" pos:[150,530] width:120 height:50
 	on dropArboles selected i do
 		tipoArbol=i
 	on dropPiramides selected j do
@@ -1434,6 +1681,14 @@ rollout Minecraft "General" width:429 height:600
 		if chk4.checked then(
 			crearObelisco spn3.value spn4.value
 		)
+		
+		if chk_puente.checked then(
+			crearPuente spn3.value spn4.value spn8.value spn9.value
+		)
+		if chk_rocas.checked then(
+			crearRoca spn3.value spn4.value spn7.value
+		)
+		
 	)
 )
 createDialog Minecraft
